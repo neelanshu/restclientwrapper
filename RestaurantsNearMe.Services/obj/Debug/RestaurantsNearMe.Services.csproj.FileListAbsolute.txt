@@ -1,0 +1,16 @@
+C:\Users\nsharma\Documents\Visual Studio 2013\Projects\RestaurantsNearMe\RestaurantsNearMe.Services\obj\Debug\RestaurantsNearMe.Services.csprojResolveAssemblyReference.cache
+C:\Users\nsharma\Documents\Visual Studio 2013\Projects\RestaurantsNearMe\RestaurantsNearMe.Services\bin\Debug\RestaurantsNearMe.Services.dll
+C:\Users\nsharma\Documents\Visual Studio 2013\Projects\RestaurantsNearMe\RestaurantsNearMe.Services\bin\Debug\RestaurantsNearMe.Services.pdb
+C:\Users\nsharma\Documents\Visual Studio 2013\Projects\RestaurantsNearMe\RestaurantsNearMe.Services\bin\Debug\ServiceStack.Text.dll
+C:\Users\nsharma\Documents\Visual Studio 2013\Projects\RestaurantsNearMe\RestaurantsNearMe.Services\bin\Debug\ServiceStack.Text.xml
+C:\Users\nsharma\Documents\Visual Studio 2013\Projects\RestaurantsNearMe\RestaurantsNearMe.Services\obj\Debug\RestaurantsNearMe.Services.dll
+C:\Users\nsharma\Documents\Visual Studio 2013\Projects\RestaurantsNearMe\RestaurantsNearMe.Services\obj\Debug\RestaurantsNearMe.Services.pdb
+C:\Users\nsharma\Desktop\PrivateGitRepos\RestaurantsNearMe\RestaurantsNearMe.Services\bin\Debug\RestaurantsNearMe.Services.dll
+C:\Users\nsharma\Desktop\PrivateGitRepos\RestaurantsNearMe\RestaurantsNearMe.Services\bin\Debug\RestaurantsNearMe.Services.pdb
+C:\Users\nsharma\Desktop\PrivateGitRepos\RestaurantsNearMe\RestaurantsNearMe.Services\bin\Debug\Newtonsoft.Json.dll
+C:\Users\nsharma\Desktop\PrivateGitRepos\RestaurantsNearMe\RestaurantsNearMe.Services\bin\Debug\ServiceStack.Text.dll
+C:\Users\nsharma\Desktop\PrivateGitRepos\RestaurantsNearMe\RestaurantsNearMe.Services\bin\Debug\Newtonsoft.Json.xml
+C:\Users\nsharma\Desktop\PrivateGitRepos\RestaurantsNearMe\RestaurantsNearMe.Services\bin\Debug\ServiceStack.Text.xml
+C:\Users\nsharma\Desktop\PrivateGitRepos\RestaurantsNearMe\RestaurantsNearMe.Services\obj\Debug\RestaurantsNearMe.Services.csprojResolveAssemblyReference.cache
+C:\Users\nsharma\Desktop\PrivateGitRepos\RestaurantsNearMe\RestaurantsNearMe.Services\obj\Debug\RestaurantsNearMe.Services.dll
+C:\Users\nsharma\Desktop\PrivateGitRepos\RestaurantsNearMe\RestaurantsNearMe.Services\obj\Debug\RestaurantsNearMe.Services.pdb

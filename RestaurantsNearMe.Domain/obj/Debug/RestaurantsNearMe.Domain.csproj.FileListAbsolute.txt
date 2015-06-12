@@ -1,0 +1,4 @@
+C:\Users\nsharma\Documents\Visual Studio 2013\Projects\RestaurantsNearMe\RestaurantsNearMe.Domain\bin\Debug\RestaurantsNearMe.Domain.dll
+C:\Users\nsharma\Documents\Visual Studio 2013\Projects\RestaurantsNearMe\RestaurantsNearMe.Domain\bin\Debug\RestaurantsNearMe.Domain.pdb
+C:\Users\nsharma\Documents\Visual Studio 2013\Projects\RestaurantsNearMe\RestaurantsNearMe.Domain\obj\Debug\RestaurantsNearMe.Domain.dll
+C:\Users\nsharma\Documents\Visual Studio 2013\Projects\RestaurantsNearMe\RestaurantsNearMe.Domain\obj\Debug\RestaurantsNearMe.Domain.pdb
