@@ -73,7 +73,7 @@ namespace RestaurantsNearMe.Business.Tests.Services
                     },
 
                 PartialDeserializeResponse = true,
-                ExpectedTokenToPartialDeserialize = "Restaurant",
+                ExpectedTokenToPartialDeserialize = "Restaurants",
                 Method = HttpMethod.Get
             };
 
