@@ -49,6 +49,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controller\RestaurantControllerTests.cs" />
+    <Compile Include="Integration\GetRestaurantsNearMeIntegrationTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -58,6 +59,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\RestaurantsNearMe.ApiInfrastructure\RestaurantsNearMe.ApiInfrastructure.csproj">
+      <Project>{5a511365-3f3e-400d-a304-05e63f543f78}</Project>
+      <Name>RestaurantsNearMe.ApiInfrastructure</Name>
+    </ProjectReference>
     <ProjectReference Include="..\RestaurantsNearMe.MVC.Web\RestaurantsNearMe.MVC.Web.csproj">
       <Project>{F9DDA2FF-976D-48BF-8E5F-DC4FDD1C7A7A}</Project>
       <Name>RestaurantsNearMe.MVC.Web</Name>
