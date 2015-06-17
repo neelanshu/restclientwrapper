@@ -8,6 +8,7 @@ C:\Users\nsharma\Desktop\PrivateGitRepos\RestaurantsNearMe\RestaurantsNearMe.MVC
 C:\Users\nsharma\Desktop\PrivateGitRepos\RestaurantsNearMe\RestaurantsNearMe.MVC.Web\bin\Newtonsoft.Json.dll
 C:\Users\nsharma\Desktop\PrivateGitRepos\RestaurantsNearMe\RestaurantsNearMe.MVC.Web\bin\RestaurantsNearMe.Business.dll
 C:\Users\nsharma\Desktop\PrivateGitRepos\RestaurantsNearMe\RestaurantsNearMe.MVC.Web\bin\System.Web.Mvc.dll
+C:\Users\nsharma\Desktop\PrivateGitRepos\RestaurantsNearMe\RestaurantsNearMe.MVC.Web\bin\System.Web.Optimization.dll
 C:\Users\nsharma\Desktop\PrivateGitRepos\RestaurantsNearMe\RestaurantsNearMe.MVC.Web\bin\System.Web.Providers.dll
 C:\Users\nsharma\Desktop\PrivateGitRepos\RestaurantsNearMe\RestaurantsNearMe.MVC.Web\bin\System.Web.WebPages.dll
 C:\Users\nsharma\Desktop\PrivateGitRepos\RestaurantsNearMe\RestaurantsNearMe.MVC.Web\bin\System.Web.WebPages.Razor.dll
@@ -25,6 +26,3 @@ C:\Users\nsharma\Desktop\PrivateGitRepos\RestaurantsNearMe\RestaurantsNearMe.MVC
 C:\Users\nsharma\Desktop\PrivateGitRepos\RestaurantsNearMe\RestaurantsNearMe.MVC.Web\obj\Debug\RestaurantsNearMe.MVC.Web.csprojResolveAssemblyReference.cache
 C:\Users\nsharma\Desktop\PrivateGitRepos\RestaurantsNearMe\RestaurantsNearMe.MVC.Web\obj\Debug\RestaurantsNearMe.MVC.Web.dll
 C:\Users\nsharma\Desktop\PrivateGitRepos\RestaurantsNearMe\RestaurantsNearMe.MVC.Web\obj\Debug\RestaurantsNearMe.MVC.Web.pdb
-C:\Users\nsharma\Desktop\PrivateGitRepos\RestaurantsNearMe\RestaurantsNearMe.MVC.Web\bin\System.Web.Optimization.dll
-C:\Users\nsharma\Desktop\PrivateGitRepos\RestaurantsNearMe\RestaurantsNearMe.MVC.Web\bin\RestaurantsNearMe.MVC.Web.dll.CodeAnalysisLog.xml
-C:\Users\nsharma\Desktop\PrivateGitRepos\RestaurantsNearMe\RestaurantsNearMe.MVC.Web\bin\RestaurantsNearMe.MVC.Web.dll.lastcodeanalysissucceeded

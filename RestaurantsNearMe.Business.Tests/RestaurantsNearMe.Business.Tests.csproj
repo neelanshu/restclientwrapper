@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{CC22791D-2874-459B-8553-AFF3297F514B}</ProjectGuid>
+    <ProjectGuid>{B8ADF6CF-9DDF-484F-A01F-92658BCD1EDC}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>RestaurantsNearMe.ApiInfrastructure.Tests</RootNamespace>
-    <AssemblyName>RestaurantsNearMe.ApiInfrastructure.Tests</AssemblyName>
+    <RootNamespace>RestaurantsNearMe.Business.Tests</RootNamespace>
+    <AssemblyName>RestaurantsNearMe.Business.Tests</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -34,37 +34,33 @@
       <HintPath>..\packages\Moq.4.2.1502.0911\lib\net40\Moq.dll</HintPath>
     </Reference>
     <Reference Include="nunit.framework, Version=2.6.4.14350, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\NUnit.2.6.4\lib\nunit.framework.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Net.Http" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
-    <Compile Include="Client\CustomRestClientTests.cs" />
-    <Compile Include="Fakes\FakeApiConfiguration.cs" />
-    <Compile Include="Fakes\FakeApiResponseFactory.cs" />
-    <Compile Include="Fakes\FakeHttpApiConnection.cs" />
-    <Compile Include="Fakes\FakeHttpClientFactory.cs" />
-    <Compile Include="Helpers\UriResolverTests.cs" />
-    <Compile Include="Http\ApiResponseFactoryTests.cs" />
-    <Compile Include="Http\HttpApiConnectionTests.cs" />
+    <Compile Include="Services\RestaurantServiceTests.cs" />
+    <Compile Include="TestJsonConvertion.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="resjson.txt" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\RestaurantsNearMe.ApiInfrastructure\RestaurantsNearMe.ApiInfrastructure.csproj">
       <Project>{5A511365-3F3E-400D-A304-05E63F543F78}</Project>
       <Name>RestaurantsNearMe.ApiInfrastructure</Name>
     </ProjectReference>
+    <ProjectReference Include="..\RestaurantsNearMe.Business\RestaurantsNearMe.Business.csproj">
+      <Project>{883FCE04-3DC6-4164-8785-3C829A477548}</Project>
+      <Name>RestaurantsNearMe.Business</Name>
+    </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

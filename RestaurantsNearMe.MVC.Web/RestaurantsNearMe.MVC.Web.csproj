@@ -203,7 +203,7 @@
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\RestaurantsNearMe.Services\RestaurantsNearMe.Business.csproj">
+    <ProjectReference Include="..\RestaurantsNearMe.Business\RestaurantsNearMe.Business.csproj">
       <Project>{883fce04-3dc6-4164-8785-3c829a477548}</Project>
       <Name>RestaurantsNearMe.Business</Name>
     </ProjectReference>

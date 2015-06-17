@@ -62,7 +62,7 @@
       <Project>{F9DDA2FF-976D-48BF-8E5F-DC4FDD1C7A7A}</Project>
       <Name>RestaurantsNearMe.MVC.Web</Name>
     </ProjectReference>
-    <ProjectReference Include="..\RestaurantsNearMe.Services\RestaurantsNearMe.Business.csproj">
+    <ProjectReference Include="..\RestaurantsNearMe.Business\RestaurantsNearMe.Business.csproj">
       <Project>{883FCE04-3DC6-4164-8785-3C829A477548}</Project>
       <Name>RestaurantsNearMe.Business</Name>
     </ProjectReference>

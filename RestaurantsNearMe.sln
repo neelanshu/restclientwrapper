@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
 VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestaurantsNearMe.Business", "RestaurantsNearMe.Services\RestaurantsNearMe.Business.csproj", "{883FCE04-3DC6-4164-8785-3C829A477548}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestaurantsNearMe.Business", "RestaurantsNearMe.Business\RestaurantsNearMe.Business.csproj", "{883FCE04-3DC6-4164-8785-3C829A477548}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestaurantsNearMe.Business.Tests", "RestaurantsNearMe.Services.Tests\RestaurantsNearMe.Business.Tests.csproj", "{B8ADF6CF-9DDF-484F-A01F-92658BCD1EDC}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestaurantsNearMe.Business.Tests", "RestaurantsNearMe.Business.Tests\RestaurantsNearMe.Business.Tests.csproj", "{B8ADF6CF-9DDF-484F-A01F-92658BCD1EDC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestaurantsNearMe.ApiInfrastructure", "RestaurantsNearMe.Infrastructure\RestaurantsNearMe.ApiInfrastructure.csproj", "{5A511365-3F3E-400D-A304-05E63F543F78}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestaurantsNearMe.ApiInfrastructure", "RestaurantsNearMe.ApiInfrastructure\RestaurantsNearMe.ApiInfrastructure.csproj", "{5A511365-3F3E-400D-A304-05E63F543F78}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestaurantsNearMe.MVC.Web", "RestaurantsNearMe.MVC.Web\RestaurantsNearMe.MVC.Web.csproj", "{F9DDA2FF-976D-48BF-8E5F-DC4FDD1C7A7A}"
 EndProject

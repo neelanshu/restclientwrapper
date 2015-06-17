@@ -23,5 +23,3 @@ C:\Users\nsharma\Desktop\PrivateGitRepos\RestaurantsNearMe\RestaurantsNearMe.MVC
 C:\Users\nsharma\Desktop\PrivateGitRepos\RestaurantsNearMe\RestaurantsNearMe.MVC.Web.Tests\obj\Debug\RestaurantsNearMe.MVC.Web.Tests.csprojResolveAssemblyReference.cache
 C:\Users\nsharma\Desktop\PrivateGitRepos\RestaurantsNearMe\RestaurantsNearMe.MVC.Web.Tests\obj\Debug\RestaurantsNearMe.MVC.Web.Tests.dll
 C:\Users\nsharma\Desktop\PrivateGitRepos\RestaurantsNearMe\RestaurantsNearMe.MVC.Web.Tests\obj\Debug\RestaurantsNearMe.MVC.Web.Tests.pdb
-C:\Users\nsharma\Desktop\PrivateGitRepos\RestaurantsNearMe\RestaurantsNearMe.MVC.Web.Tests\bin\Debug\RestaurantsNearMe.MVC.Web.Tests.dll.CodeAnalysisLog.xml
-C:\Users\nsharma\Desktop\PrivateGitRepos\RestaurantsNearMe\RestaurantsNearMe.MVC.Web.Tests\bin\Debug\RestaurantsNearMe.MVC.Web.Tests.dll.lastcodeanalysissucceeded

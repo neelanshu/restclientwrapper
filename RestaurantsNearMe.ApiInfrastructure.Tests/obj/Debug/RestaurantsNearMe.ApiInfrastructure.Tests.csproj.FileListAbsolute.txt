@@ -15,5 +15,3 @@ C:\Users\nsharma\Desktop\PrivateGitRepos\RestaurantsNearMe\RestaurantsNearMe.Api
 C:\Users\nsharma\Desktop\PrivateGitRepos\RestaurantsNearMe\RestaurantsNearMe.ApiInfrastructure.Tests\obj\Debug\RestaurantsNearMe.ApiInfrastructure.Tests.csprojResolveAssemblyReference.cache
 C:\Users\nsharma\Desktop\PrivateGitRepos\RestaurantsNearMe\RestaurantsNearMe.ApiInfrastructure.Tests\obj\Debug\RestaurantsNearMe.ApiInfrastructure.Tests.dll
 C:\Users\nsharma\Desktop\PrivateGitRepos\RestaurantsNearMe\RestaurantsNearMe.ApiInfrastructure.Tests\obj\Debug\RestaurantsNearMe.ApiInfrastructure.Tests.pdb
-C:\Users\nsharma\Desktop\PrivateGitRepos\RestaurantsNearMe\RestaurantsNearMe.ApiInfrastructure.Tests\bin\Debug\RestaurantsNearMe.ApiInfrastructure.Tests.dll.CodeAnalysisLog.xml
-C:\Users\nsharma\Desktop\PrivateGitRepos\RestaurantsNearMe\RestaurantsNearMe.ApiInfrastructure.Tests\bin\Debug\RestaurantsNearMe.ApiInfrastructure.Tests.dll.lastcodeanalysissucceeded
