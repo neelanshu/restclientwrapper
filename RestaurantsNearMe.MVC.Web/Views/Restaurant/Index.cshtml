@@ -1,0 +1,79 @@
+﻿@*@using PagedList.Mvc
+@model PagedList.IPagedList<RestaurantsNearMe.Business.Models.Restaurant>*@
+
+@model RestaurantsNearMe.MVC.Web.Models.RestaurantsViewModel
+
+<link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
+
+@{
+    ViewBag.Title = "Restaurants lookup";
+}
+
+<h2>Search here </h2>
+
+@using (Html.BeginForm("GetAll", "Restaurant", FormMethod.Get))
+{
+    <p>
+        Search by outcode: @Html.TextBox("outCode")
+        <input type="submit" value="Search" />
+    </p>
+}
+
+@if (Model != null)
+{
+    if (Model.HasError)
+    {
+        <p>@Model.Error.ErrorMessage</p>
+    }
+else if (!Model.HasError)
+{
+    <p> We found @Model.AllRestaurant.Count (currently available) takeaways near you.  The highest rated are at the top</p>
+        <table class="">
+            <tr>
+                @*<th>
+                    Id
+                </th>*@
+                @*<th>
+                    @Html.ActionLink("Name", "GetAll", new {sortOrder = ViewBag.NameSortParm, currentFilter = ViewBag.CurrentFilter})
+                </th>
+                <th>
+                    @Html.ActionLink("Rating", "GetAll", new {sortOrder = ViewBag.RatingSortParm, currentFilter = ViewBag.CurrentFilter})
+                </th>*@
+                <th>
+                    Name
+                </th>
+                <th>
+                    Rating
+                </th>
+                <th>
+                    Available Cuisines
+                </th>
+                <th></th>
+            </tr>
+                @foreach (var item in Model.AllRestaurant)
+                {
+                    <tr>
+                       @Html.HiddenFor(modelItem => item.Id)
+
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Name)
+                        </td>
+                        <td>
+                           @Html.DisplayFor(modelItem => item.Rating)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.AvailableCuisineTypes)
+                        </td>
+                        @*<td>
+                        @Html.ActionLink("Edit", "Edit", new {id = item.Id}) |
+                        @Html.ActionLink("Details", "Details", new {id = item.Id}) |
+                        @Html.ActionLink("Delete", "Delete", new {id = item.Id})
+                    </td>*@
+                    </tr>
+                }
+                </table>
+                <br/>
+
+}
+}
+

@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{5A511365-3F3E-400D-A304-05E63F543F78}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>RestaurantsNearMe.ApiInfrastructure</RootNamespace>
+    <AssemblyName>RestaurantsNearMe.ApiInfrastructure</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Castle.Core">
+      <HintPath>..\packages\Castle.Core.3.2.0\lib\net45\Castle.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Castle.Windsor">
+      <HintPath>..\packages\Castle.Windsor.3.2.0\lib\net45\Castle.Windsor.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.4.5.11\lib\net40\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Net.Http" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Api\Response\ApiResponseFactory.cs" />
+    <Compile Include="Guards\ShouldBe.cs" />
+    <Compile Include="Helpers\IUriResolver.cs" />
+    <Compile Include="Helpers\UriResolver.cs" />
+    <Compile Include="Client\HttpApiConnection.cs" />
+    <Compile Include="Client\CustomRestClient.cs" />
+    <Compile Include="Serialization\DefaultJsonSerializer.cs" />
+    <Compile Include="Guards\Requires.cs" />
+    <Compile Include="Api\Request\DefaultApiConfiguration.cs" />
+    <Compile Include="Client\DefaultClientFactory.cs" />
+    <Compile Include="Client\IHttpClientFactory.cs" />
+    <Compile Include="Api\Request\IApiConfiguration.cs" />
+    <Compile Include="Api\Response\IApiResponseFactory.cs" />
+    <Compile Include="Client\ICustomRestClient.cs" />
+    <Compile Include="Serialization\ICustomJsonSerializer.cs" />
+    <Compile Include="Client\IHttpApiConnection.cs" />
+    <Compile Include="IOC\ApiInfrastructureDependencyInstaller.cs" />
+    <Compile Include="Api\Response\ApiResponse.cs" />
+    <Compile Include="Api\Request\DefaultApiRequest.cs" />
+    <Compile Include="Api\Request\IApiRequest.cs" />
+    <Compile Include="Api\Response\IApiResponse.cs" />
+    <Compile Include="Models\Resource.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

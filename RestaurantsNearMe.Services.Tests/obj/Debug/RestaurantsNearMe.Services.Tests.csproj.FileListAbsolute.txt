@@ -14,15 +14,9 @@ C:\Users\nsharma\Documents\Visual Studio 2013\Projects\RestaurantsNearMe\Restaur
 C:\Users\nsharma\Desktop\PrivateGitRepos\RestaurantsNearMe\RestaurantsNearMe.Services.Tests\bin\Debug\RestaurantsNearMe.Services.Tests.dll
 C:\Users\nsharma\Desktop\PrivateGitRepos\RestaurantsNearMe\RestaurantsNearMe.Services.Tests\bin\Debug\RestaurantsNearMe.Services.Tests.pdb
 C:\Users\nsharma\Desktop\PrivateGitRepos\RestaurantsNearMe\RestaurantsNearMe.Services.Tests\bin\Debug\Moq.dll
-C:\Users\nsharma\Desktop\PrivateGitRepos\RestaurantsNearMe\RestaurantsNearMe.Services.Tests\bin\Debug\Newtonsoft.Json.dll
 C:\Users\nsharma\Desktop\PrivateGitRepos\RestaurantsNearMe\RestaurantsNearMe.Services.Tests\bin\Debug\nunit.framework.dll
-C:\Users\nsharma\Desktop\PrivateGitRepos\RestaurantsNearMe\RestaurantsNearMe.Services.Tests\bin\Debug\RestaurantsNearMe.Services.dll
-C:\Users\nsharma\Desktop\PrivateGitRepos\RestaurantsNearMe\RestaurantsNearMe.Services.Tests\bin\Debug\ServiceStack.Text.dll
-C:\Users\nsharma\Desktop\PrivateGitRepos\RestaurantsNearMe\RestaurantsNearMe.Services.Tests\bin\Debug\RestaurantsNearMe.Services.pdb
 C:\Users\nsharma\Desktop\PrivateGitRepos\RestaurantsNearMe\RestaurantsNearMe.Services.Tests\bin\Debug\Moq.xml
-C:\Users\nsharma\Desktop\PrivateGitRepos\RestaurantsNearMe\RestaurantsNearMe.Services.Tests\bin\Debug\Newtonsoft.Json.xml
 C:\Users\nsharma\Desktop\PrivateGitRepos\RestaurantsNearMe\RestaurantsNearMe.Services.Tests\bin\Debug\nunit.framework.xml
-C:\Users\nsharma\Desktop\PrivateGitRepos\RestaurantsNearMe\RestaurantsNearMe.Services.Tests\bin\Debug\ServiceStack.Text.xml
 C:\Users\nsharma\Desktop\PrivateGitRepos\RestaurantsNearMe\RestaurantsNearMe.Services.Tests\obj\Debug\RestaurantsNearMe.Services.Tests.csprojResolveAssemblyReference.cache
 C:\Users\nsharma\Desktop\PrivateGitRepos\RestaurantsNearMe\RestaurantsNearMe.Services.Tests\obj\Debug\RestaurantsNearMe.Services.Tests.dll
 C:\Users\nsharma\Desktop\PrivateGitRepos\RestaurantsNearMe\RestaurantsNearMe.Services.Tests\obj\Debug\RestaurantsNearMe.Services.Tests.pdb

@@ -3,3 +3,6 @@ C:\Users\nsharma\Documents\Visual Studio 2013\Projects\RestaurantsNearMe\Restaur
 C:\Users\nsharma\Documents\Visual Studio 2013\Projects\RestaurantsNearMe\RestaurantsNearMe.Infrastructure\obj\Debug\RestaurantsNearMe.Infrastructure.csprojResolveAssemblyReference.cache
 C:\Users\nsharma\Documents\Visual Studio 2013\Projects\RestaurantsNearMe\RestaurantsNearMe.Infrastructure\obj\Debug\RestaurantsNearMe.Infrastructure.dll
 C:\Users\nsharma\Documents\Visual Studio 2013\Projects\RestaurantsNearMe\RestaurantsNearMe.Infrastructure\obj\Debug\RestaurantsNearMe.Infrastructure.pdb
+C:\Users\nsharma\Desktop\PrivateGitRepos\RestaurantsNearMe\RestaurantsNearMe.Infrastructure\obj\Debug\RestaurantsNearMe.Infrastructure.csprojResolveAssemblyReference.cache
+C:\Users\nsharma\Desktop\PrivateGitRepos\RestaurantsNearMe\RestaurantsNearMe.Infrastructure\obj\Debug\RestaurantsNearMe.Infrastructure.dll
+C:\Users\nsharma\Desktop\PrivateGitRepos\RestaurantsNearMe\RestaurantsNearMe.Infrastructure\obj\Debug\RestaurantsNearMe.Infrastructure.pdb
