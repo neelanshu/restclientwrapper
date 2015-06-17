@@ -1,23 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Net;
+﻿using System.Collections.Generic;
 using System.Net.Http;
 using System.Threading.Tasks;
 using RestaurantsNearMe.ApiInfrastructure.Api.Request;
 using RestaurantsNearMe.ApiInfrastructure.Api.Response;
 using RestaurantsNearMe.ApiInfrastructure.Guards;
 using RestaurantsNearMe.ApiInfrastructure.Helpers;
-using RestaurantsNearMe.ApiInfrastructure.Models;
 
 namespace RestaurantsNearMe.ApiInfrastructure.Client
 {
-    public class CustomRestClient : ICustomRestClient
+    public class GenericRestClient : IClient
     {
         private readonly IUriResolver _uriResolver;
         private readonly IHttpApiConnection _httpApiConnection;
         private readonly IApiConfiguration _apiConfiguration;
 
-        public CustomRestClient(IHttpApiConnection httpApiConnection, IApiConfiguration apiConfiguration, IUriResolver uriResolver)
+        public GenericRestClient(IHttpApiConnection httpApiConnection, IApiConfiguration apiConfiguration, IUriResolver uriResolver)
         {
             Requires.ArgumentsToBeNotNull(httpApiConnection, "httpApiConnection");
             Requires.ArgumentsToBeNotNull(apiConfiguration, "apiRequestConfiguration");
@@ -32,7 +29,7 @@ namespace RestaurantsNearMe.ApiInfrastructure.Client
 
         public IHttpApiConnection HttpApiConnection { get { return _httpApiConnection; } }
 
-        public IApiResponseStatus ApiResponseStatus { get; set; }
+        public IClientResponse ApiResponseStatus { get; set; }
 
         public Task<T> GetAsync<T>(IApiRequest request)
         {
@@ -45,7 +42,7 @@ namespace RestaurantsNearMe.ApiInfrastructure.Client
         private async Task<T> SendRequestAndGetBodyAsync<T>(IApiRequest request)
         {
             var response = await SendRequestAsync<T>(request);
-            ApiResponseStatus = new DefaultApiResponseStatus()
+            ApiResponseStatus = new ClientResponse()
             {
                 ReasonPhrase = response.ReasonPhrase,
                 StatusCode = response.StatusCode
@@ -62,7 +59,7 @@ namespace RestaurantsNearMe.ApiInfrastructure.Client
 
             request.ResourceUri = _uriResolver.ResolveUri(request.ResourceUri, request.Parameters);
 
-            return await _httpApiConnection.SendRequestAsync<T>(request, request.ResourceUri, request.Method, request.Headers).ConfigureAwait(ApiConfiguration.CaptureSynchronizationContext);
+            return await _httpApiConnection.SendRequestAsync<T>(request).ConfigureAwait(ApiConfiguration.CaptureSynchronizationContext);
         }
 
         private void  SetDefaultMediaTypeForAcceptRequestHeader(Dictionary<string, IEnumerable<string>> headers)

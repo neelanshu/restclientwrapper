@@ -1,3 +1,4 @@
+C:\Users\nsharma\Desktop\PrivateGitRepos\RestaurantsNearMe\RestaurantsNearMe.ApiInfrastructure.Tests\obj\Debug\RestaurantsNearMe.ApiInfrastructure.Tests.csprojResolveAssemblyReference.cache
 C:\Users\nsharma\Desktop\PrivateGitRepos\RestaurantsNearMe\RestaurantsNearMe.ApiInfrastructure.Tests\bin\Debug\RestaurantsNearMe.ApiInfrastructure.Tests.dll
 C:\Users\nsharma\Desktop\PrivateGitRepos\RestaurantsNearMe\RestaurantsNearMe.ApiInfrastructure.Tests\bin\Debug\RestaurantsNearMe.ApiInfrastructure.Tests.pdb
 C:\Users\nsharma\Desktop\PrivateGitRepos\RestaurantsNearMe\RestaurantsNearMe.ApiInfrastructure.Tests\bin\Debug\Moq.dll
@@ -12,6 +13,5 @@ C:\Users\nsharma\Desktop\PrivateGitRepos\RestaurantsNearMe\RestaurantsNearMe.Api
 C:\Users\nsharma\Desktop\PrivateGitRepos\RestaurantsNearMe\RestaurantsNearMe.ApiInfrastructure.Tests\bin\Debug\Castle.Windsor.xml
 C:\Users\nsharma\Desktop\PrivateGitRepos\RestaurantsNearMe\RestaurantsNearMe.ApiInfrastructure.Tests\bin\Debug\Castle.Core.xml
 C:\Users\nsharma\Desktop\PrivateGitRepos\RestaurantsNearMe\RestaurantsNearMe.ApiInfrastructure.Tests\bin\Debug\Newtonsoft.Json.xml
-C:\Users\nsharma\Desktop\PrivateGitRepos\RestaurantsNearMe\RestaurantsNearMe.ApiInfrastructure.Tests\obj\Debug\RestaurantsNearMe.ApiInfrastructure.Tests.csprojResolveAssemblyReference.cache
 C:\Users\nsharma\Desktop\PrivateGitRepos\RestaurantsNearMe\RestaurantsNearMe.ApiInfrastructure.Tests\obj\Debug\RestaurantsNearMe.ApiInfrastructure.Tests.dll
 C:\Users\nsharma\Desktop\PrivateGitRepos\RestaurantsNearMe\RestaurantsNearMe.ApiInfrastructure.Tests\obj\Debug\RestaurantsNearMe.ApiInfrastructure.Tests.pdb

@@ -30,15 +30,13 @@ namespace RestaurantsNearMe.ApiInfrastructure.Client
             _httpClient = factory.GetClient();
         }
 
-        public async Task<IApiResponse<T>> SendRequestAsync<T>(IApiRequest apiRequest, Uri resourceUri, HttpMethod httpMethod, IDictionary<string, IEnumerable<string>> headers)
+        public async Task<IApiResponse<T>> SendRequestAsync<T>(IApiRequest apiRequest)
         {
             ValidateRequiredFields(apiRequest);
-            Requires.ArgumentsToBeNotNull(resourceUri, "resourceUri");
-            Requires.ArgumentsToBeNotNull(httpMethod, "httpMethod");
 
-            using (var request = new HttpRequestMessage {RequestUri = resourceUri, Method = httpMethod})
+            using (var request = new HttpRequestMessage {RequestUri = apiRequest.ResourceUri, Method = apiRequest.Method})
             {
-               SetRequestHeaders(headers, request);
+               SetRequestHeaders(apiRequest.Headers, request);
 
                var responseMessage = await
                     _httpClient.SendAsync(request, CancellationToken.None)
@@ -60,6 +58,9 @@ namespace RestaurantsNearMe.ApiInfrastructure.Client
             {
                 Requires.ArgumentsToBeNotNull(request.ExpectedTokenToPartialDeserialize, "request.ExpectedToken");
             }
+
+            Requires.ArgumentsToBeNotNull(request.ResourceUri, "request.ResourceUri");
+            Requires.ArgumentsToBeNotNull(request.Method, "request.Method");
         }
 
         private void  SetRequestHeaders(IDictionary<string, IEnumerable<string>> headers, HttpRequestMessage request)
@@ -70,21 +71,6 @@ namespace RestaurantsNearMe.ApiInfrastructure.Client
             {
                 request.Headers.Add(header.Key, header.Value);
             }
-        }
-
-        private void SomeMethod()
-        {
-            //HttpResponseMessage responseMessage = new HttpResponseMessage();
-            //using (
-            //    var r =
-            //        new StreamReader(
-            //            @"C:\Users\nsharma\Desktop\PrivateGitRepos\RestaurantsNearMe\RestaurantsNearMe.Services.Tests\resjson.txt")
-            //    )
-            //{
-            //    string json = r.ReadToEnd();
-            //    responseMessage.Content = new StringContent(json);
-
-            //}
         }
     }
 }

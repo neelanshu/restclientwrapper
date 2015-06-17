@@ -45,11 +45,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Api\Response\ApiResponseFactory.cs" />
+    <Compile Include="Client\ClientResponse.cs" />
+    <Compile Include="Client\GenericRestClient.cs" />
+    <Compile Include="Client\IClient.cs" />
+    <Compile Include="Client\IClientResponse.cs" />
     <Compile Include="Guards\ShouldBe.cs" />
     <Compile Include="Helpers\IUriResolver.cs" />
     <Compile Include="Helpers\UriResolver.cs" />
     <Compile Include="Client\HttpApiConnection.cs" />
-    <Compile Include="Client\CustomRestClient.cs" />
     <Compile Include="Serialization\DefaultJsonSerializer.cs" />
     <Compile Include="Guards\Requires.cs" />
     <Compile Include="Api\Request\DefaultApiConfiguration.cs" />
@@ -57,7 +60,6 @@
     <Compile Include="Client\IHttpClientFactory.cs" />
     <Compile Include="Api\Request\IApiConfiguration.cs" />
     <Compile Include="Api\Response\IApiResponseFactory.cs" />
-    <Compile Include="Client\ICustomRestClient.cs" />
     <Compile Include="Serialization\ICustomJsonSerializer.cs" />
     <Compile Include="Client\IHttpApiConnection.cs" />
     <Compile Include="IOC\ApiInfrastructureDependencyInstaller.cs" />

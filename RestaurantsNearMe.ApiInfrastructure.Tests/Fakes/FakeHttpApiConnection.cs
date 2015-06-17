@@ -18,7 +18,7 @@ namespace RestaurantsNearMe.ApiInfrastructure.Tests.Fakes
             _response = response;
         }
 
-        public Task<IApiResponse<T>> SendRequestAsync<T>(IApiRequest request,Uri resourceUri , HttpMethod httpMethod,IDictionary<string, IEnumerable<string>> headers)
+        public Task<IApiResponse<T>> SendRequestAsync<T>(IApiRequest request)
         {
             var response = _response as IApiResponse<T>;
             return Task.FromResult(response ?? new ApiResponse<T>());

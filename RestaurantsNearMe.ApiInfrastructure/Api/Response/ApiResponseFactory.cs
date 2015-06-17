@@ -1,5 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
 using Castle.Core.Internal;
@@ -27,6 +29,9 @@ namespace RestaurantsNearMe.ApiInfrastructure.Api.Response
         {
             string body = null;
             object bodyAsObject = null;
+            var isException = false;
+            const HttpStatusCode customResponseStatus = HttpStatusCode.InternalServerError;
+            var customReasonPhrase = string.Empty; 
 
             using (var content = response.Content)
             {
@@ -44,7 +49,15 @@ namespace RestaurantsNearMe.ApiInfrastructure.Api.Response
                         {
                             if (partialDeserialize && !token.IsNullOrEmpty())
                             {
-                                bodyAsObject = _jsonSerializer.PartialDeserialize<T>(body, token);
+                                try
+                                {
+                                    bodyAsObject = _jsonSerializer.PartialDeserialize<T>(body, token);
+                                }
+                                catch (Exception ex)
+                                {
+                                    isException = true;
+                                    customReasonPhrase = "Failed to parse json from response";
+                                }
                             }
                             else
                             {
@@ -62,11 +75,18 @@ namespace RestaurantsNearMe.ApiInfrastructure.Api.Response
             
             var apiResponse = new ApiResponse<T>
             {
-                StatusCode = response.StatusCode, 
+                StatusCode =  response.StatusCode, 
                 ReasonPhrase = response.ReasonPhrase,
                 Body = body,
                 BodyAsObject = (T)bodyAsObject,
             };
+
+
+            if (isException)
+            {
+                apiResponse.StatusCode = customResponseStatus;
+                apiResponse.ReasonPhrase= customReasonPhrase;
+            }
 
             SetResponseHeaders(apiResponse.Headers, response);
 

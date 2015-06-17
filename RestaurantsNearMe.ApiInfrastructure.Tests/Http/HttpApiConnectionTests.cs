@@ -38,16 +38,20 @@ namespace RestaurantsNearMe.ApiInfrastructure.Tests.Http
         public async Task ShouldSendAnHttpRequestMessageWithRequestUriSetToTheGivenUri()
         {
             var expectedUri = new Uri("http://myhost.co.uk");
-            var mockHttp = new Mock<HttpClient>(MockBehavior.Loose);
+            var actualUri = new Uri("http://w"); //some incorrect value here 
 
+            var mockHttp = new Mock<HttpClient>(MockBehavior.Loose);
+            
             mockHttp.Setup(h => h.SendAsync(It.Is<HttpRequestMessage>(r => r.RequestUri == expectedUri),
                                              CancellationToken.None))
+                    .Callback((HttpRequestMessage re,CancellationToken tk)=>actualUri = re.RequestUri)
                     .Returns(Task.FromResult(new HttpResponseMessage()))
                     .Verifiable();
 
             var conn = CreateHttpConnection(clientFactory: new FakeHttpClientFactory(mockHttp.Object));
-            await conn.SendRequestAsync<object>(new DefaultApiRequest(), expectedUri, HttpMethod.Get, null);
+            await conn.SendRequestAsync<object>(new DefaultApiRequest() {ResourceUri = expectedUri, Method = HttpMethod.Get});
 
+            Assert.AreEqual(expectedUri,actualUri);
             mockHttp.Verify();
         }
 
@@ -55,15 +59,18 @@ namespace RestaurantsNearMe.ApiInfrastructure.Tests.Http
         public async Task ShouldSendAnHttpRequestMessageWithTheGivenHttpMethod()
         {
             var expectedMethod = HttpMethod.Get;
+            var actualMethod = HttpMethod.Trace;
 
             var mockHttp = new Mock<HttpClient>(MockBehavior.Loose);
             mockHttp.Setup(h => h.SendAsync(It.Is<HttpRequestMessage>(r => r.Method == expectedMethod),
                                             It.IsAny<CancellationToken>()))
+                    .Callback((HttpRequestMessage re, CancellationToken tk) => actualMethod = re.Method)
                     .Returns(Task.FromResult(new HttpResponseMessage()))
                     .Verifiable();
             var conn = CreateHttpConnection(clientFactory: new FakeHttpClientFactory(mockHttp.Object));
-            await conn.SendRequestAsync<object>(new DefaultApiRequest(), new Uri("http://myhost.com"), expectedMethod, null);
+            await conn.SendRequestAsync<object>(new DefaultApiRequest() { ResourceUri = new Uri("http://myhost.com"), Method = expectedMethod });
 
+            Assert.AreEqual(expectedMethod, actualMethod);
             mockHttp.Verify();
         }
 
@@ -73,6 +80,8 @@ namespace RestaurantsNearMe.ApiInfrastructure.Tests.Http
             var expectedHeaderKey = "HeaderKey";
             var expectedHeaderValues = new[] { "Foo", "Bar" };
             IEnumerable<string> actualHeaderValues = null;
+
+
             var mockHttp = new Mock<HttpClient>(MockBehavior.Loose);
             mockHttp.Setup(h => h.SendAsync(It.IsAny<HttpRequestMessage>(), It.IsAny<CancellationToken>()))
                     .Callback((HttpRequestMessage request, CancellationToken token) =>
@@ -81,14 +90,14 @@ namespace RestaurantsNearMe.ApiInfrastructure.Tests.Http
             var conn = CreateHttpConnection(clientFactory: new FakeHttpClientFactory(mockHttp.Object));
 
             await conn.SendRequestAsync<string>(
-                new DefaultApiRequest(), 
-                new Uri("https://api.io"),
-                HttpMethod.Put,
+                new DefaultApiRequest() {
+                ResourceUri = new Uri("https://api.io"),
+                Method = HttpMethod.Put,
                 
-                new Dictionary<string, IEnumerable<string>>
+                Headers = new Dictionary<string, IEnumerable<string>>
                     {
                         {expectedHeaderKey, expectedHeaderValues}
-                    });
+                    }});
 
             Assert.AreEqual(expectedHeaderValues, actualHeaderValues);
         }
@@ -110,25 +119,24 @@ namespace RestaurantsNearMe.ApiInfrastructure.Tests.Http
             var conn = CreateHttpConnection(responseFactory: mockRespFact.Object,clientFactory: new FakeHttpClientFactory(mockHttp.Object));
 
             await conn.SendRequestAsync<object>(
-                new DefaultApiRequest(), 
-                new Uri("https://myhost.com"),
-                HttpMethod.Get,
-                null);
+               new DefaultApiRequest()
+               {
+                   ResourceUri = new Uri("https://api.io"),
+                   Method = HttpMethod.Put});
 
             mockRespFact.Verify();
         }
 
         [Test]
-        public async Task SendRequestAsync_ShouldReturnTheApiResponseReturnedByTheResponseFactory()
+        public async Task SendRequestAsyncShouldReturnTheApiResponseReturnedByTheResponseFactory()
         {
             var expectedApiResponse = new ApiResponse<object>();
             var conn = CreateHttpConnection(responseFactory: new FakeApiResponseFactory(expectedApiResponse));
 
             var actualApiResponse = await conn.SendRequestAsync<object>(
-                                        new DefaultApiRequest(), 
-                                        new Uri("https://myhost.com"),
-                                        HttpMethod.Get,
-                                        null);
+                                        new DefaultApiRequest() {
+                                        ResourceUri  = new Uri("https://myhost.com"),
+                                        Method = HttpMethod.Get});
 
             Assert.AreSame(expectedApiResponse, actualApiResponse);
         } 

@@ -17,12 +17,11 @@ namespace RestaurantsNearMe.Business.Tests.Services
     public class RestaurantServiceTests
     {
         
-        private RestaurantService CreateService(IApiConfiguration config= null, ICustomRestClient client = null, IApplicationSettings appsettings = null)
+        private RestaurantService CreateService(IApiConfiguration config= null, IClient client = null)
         {
             return new RestaurantService(
-                client?? new Mock<ICustomRestClient>().Object,
-                config ?? new Mock<IApiConfiguration>().Object,
-                appsettings ?? new Mock<IApplicationSettings>().Object);
+                client?? new Mock<IClient>().Object,
+                config ?? new Mock<IApiConfiguration>().Object);
         }
 
         [Test]
@@ -32,20 +31,13 @@ namespace RestaurantsNearMe.Business.Tests.Services
             IApiRequest actualRequest = new DefaultApiRequest(); 
             var expectedApiRequest = CreateRequestParamsForGetAllRestaurantsAsyncForJustEat(searchCode);
 
-            //var appsettings = new Mock<IApplicationSettings>();
-            //appsettings.SetupGet(x => x.RestaurantsResource).Returns("http://api-interview.just-eat.com/restaurants");
-            //appsettings.SetupGet(x => x.RestaurantsResourceAcceptLanguageHeader).Returns("en-gb");
-            //appsettings.SetupGet(x => x.RestaurantsResourceAcceptTenantHeader).Returns("uk");
-            //appsettings.SetupGet(x => x.RestaurantsResourceResponseIdentifierToken).Returns("Restaurant");
-            //appsettings.SetupGet(x => x.RestaurantsResourceAuthenticationHeader).Returns("Basic VGVjaFRlc3RBUEk6dXNlcjI=");
-
-            var client = new Mock<ICustomRestClient>(MockBehavior.Loose);
+            var client = new Mock<IClient>(MockBehavior.Loose);
             client.Setup(r => r.GetAsync<IEnumerable<Restaurant>>(It.IsAny<IApiRequest>()))
                                                                   .Callback((IApiRequest re) => actualRequest = re)      
                                                                   .Returns(Task.FromResult<IEnumerable<Restaurant>>(new List<Restaurant>())).Verifiable();
-            client.Setup(r => r.ApiResponseStatus).Returns(new DefaultApiResponseStatus());
+            client.Setup(r => r.ApiResponseStatus).Returns(new ClientResponse());
 
-            var service = CreateService(client: client.Object);//, appsettings:appsettings.Object);
+            var service = CreateService(client: client.Object);
 
             await service.GetAllRestaurantsAsync(searchCode);
 
@@ -84,10 +76,10 @@ namespace RestaurantsNearMe.Business.Tests.Services
         public async Task GetAllRestaurantsAsyncShouldCallClient()
         {
             const string searchCode = "se12";
-            var client = new Mock<ICustomRestClient>(MockBehavior.Loose);
+            var client = new Mock<IClient>(MockBehavior.Loose);
             client.Setup(r => r.GetAsync<IEnumerable<Restaurant>>(It.IsAny<IApiRequest>()))
                                                                   .Returns(Task.FromResult<IEnumerable<Restaurant>>(new List<Restaurant>())).Verifiable();
-            client.Setup(r => r.ApiResponseStatus).Returns(new DefaultApiResponseStatus());
+            client.Setup(r => r.ApiResponseStatus).Returns(new ClientResponse());
 
             var service = CreateService(client: client.Object);
 
@@ -109,11 +101,11 @@ namespace RestaurantsNearMe.Business.Tests.Services
 
             var actualParameters = new Dictionary<string, string>();
 
-            var client = new Mock<ICustomRestClient>(MockBehavior.Loose);
+            var client = new Mock<IClient>(MockBehavior.Loose);
             client.Setup(r => r.GetAsync<IEnumerable<Restaurant>>(It.IsAny<IApiRequest>()))
                                                                 .Callback((IApiRequest re) => actualParameters = re.Parameters)
                                                                 .Returns(Task.FromResult<IEnumerable<Restaurant>>(new List<Restaurant>())).Verifiable();
-            client.Setup(r => r.ApiResponseStatus).Returns(new DefaultApiResponseStatus());
+            client.Setup(r => r.ApiResponseStatus).Returns(new ClientResponse());
 
             var service = CreateService(client: client.Object);
 
@@ -132,10 +124,10 @@ namespace RestaurantsNearMe.Business.Tests.Services
             restaurantsFromClient.Add(new Restaurant() { Id = 3, Name = "3", IsOpenNow = true, IsOpenNowForCollection = true, IsOpenNowForDelivery = true, IsTemporarilyOffline = false });
             restaurantsFromClient.Add(new Restaurant() { Id = 4, Name = "4", IsOpenNow = true, IsOpenNowForCollection = true, IsOpenNowForDelivery = true, IsTemporarilyOffline = false });
 
-            var client = new Mock<ICustomRestClient>(MockBehavior.Loose);
+            var client = new Mock<IClient>(MockBehavior.Loose);
             client.Setup(r => r.GetAsync<IEnumerable<Restaurant>>(It.IsAny<IApiRequest>()))
                                                                   .Returns(Task.FromResult<IEnumerable<Restaurant>>(restaurantsFromClient)).Verifiable();
-            client.Setup(r => r.ApiResponseStatus).Returns(new DefaultApiResponseStatus() {StatusCode = HttpStatusCode.OK});
+            client.Setup(r => r.ApiResponseStatus).Returns(new ClientResponse() {StatusCode = HttpStatusCode.OK});
 
             var service = CreateService(client: client.Object);
 
@@ -155,10 +147,10 @@ namespace RestaurantsNearMe.Business.Tests.Services
             restaurantsFromClient.Add(new Restaurant() { Id = 3, Name = "3", IsOpenNow = true, IsOpenNowForCollection = true, IsOpenNowForDelivery = true, IsTemporarilyOffline = false });
             restaurantsFromClient.Add(new Restaurant() { Id = 4, Name = "4", IsOpenNow = true, IsOpenNowForCollection = true, IsOpenNowForDelivery = true, IsTemporarilyOffline = false });
 
-            var client = new Mock<ICustomRestClient>(MockBehavior.Loose);
+            var client = new Mock<IClient>(MockBehavior.Loose);
             client.Setup(r => r.GetAsync<IEnumerable<Restaurant>>(It.IsAny<IApiRequest>()))
                                                                   .Returns(Task.FromResult<IEnumerable<Restaurant>>(restaurantsFromClient)).Verifiable();
-            client.Setup(r => r.ApiResponseStatus).Returns(new DefaultApiResponseStatus() { StatusCode = HttpStatusCode.BadGateway});
+            client.Setup(r => r.ApiResponseStatus).Returns(new ClientResponse() { StatusCode = HttpStatusCode.BadGateway});
 
             var service = CreateService(client: client.Object);
 

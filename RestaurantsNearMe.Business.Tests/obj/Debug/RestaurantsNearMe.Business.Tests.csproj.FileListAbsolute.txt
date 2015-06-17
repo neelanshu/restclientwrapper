@@ -19,6 +19,7 @@ C:\Users\nsharma\Desktop\PrivateGitRepos\RestaurantsNearMe\RestaurantsNearMe.Ser
 C:\Users\nsharma\Desktop\PrivateGitRepos\RestaurantsNearMe\RestaurantsNearMe.Services.Tests\obj\Debug\RestaurantsNearMe.Business.Tests.pdb
 C:\Users\nsharma\Desktop\PrivateGitRepos\RestaurantsNearMe\RestaurantsNearMe.Services.Tests\bin\Debug\RestaurantsNearMe.Business.Tests.dll.CodeAnalysisLog.xml
 C:\Users\nsharma\Desktop\PrivateGitRepos\RestaurantsNearMe\RestaurantsNearMe.Services.Tests\bin\Debug\RestaurantsNearMe.Business.Tests.dll.lastcodeanalysissucceeded
+C:\Users\nsharma\Desktop\PrivateGitRepos\RestaurantsNearMe\RestaurantsNearMe.Business.Tests\obj\Debug\RestaurantsNearMe.Business.Tests.csprojResolveAssemblyReference.cache
 C:\Users\nsharma\Desktop\PrivateGitRepos\RestaurantsNearMe\RestaurantsNearMe.Business.Tests\bin\Debug\RestaurantsNearMe.Business.Tests.dll
 C:\Users\nsharma\Desktop\PrivateGitRepos\RestaurantsNearMe\RestaurantsNearMe.Business.Tests\bin\Debug\RestaurantsNearMe.Business.Tests.pdb
 C:\Users\nsharma\Desktop\PrivateGitRepos\RestaurantsNearMe\RestaurantsNearMe.Business.Tests\bin\Debug\Moq.dll
@@ -35,6 +36,5 @@ C:\Users\nsharma\Desktop\PrivateGitRepos\RestaurantsNearMe\RestaurantsNearMe.Bus
 C:\Users\nsharma\Desktop\PrivateGitRepos\RestaurantsNearMe\RestaurantsNearMe.Business.Tests\bin\Debug\Castle.Windsor.xml
 C:\Users\nsharma\Desktop\PrivateGitRepos\RestaurantsNearMe\RestaurantsNearMe.Business.Tests\bin\Debug\Castle.Core.xml
 C:\Users\nsharma\Desktop\PrivateGitRepos\RestaurantsNearMe\RestaurantsNearMe.Business.Tests\bin\Debug\Newtonsoft.Json.xml
-C:\Users\nsharma\Desktop\PrivateGitRepos\RestaurantsNearMe\RestaurantsNearMe.Business.Tests\obj\Debug\RestaurantsNearMe.Business.Tests.csprojResolveAssemblyReference.cache
 C:\Users\nsharma\Desktop\PrivateGitRepos\RestaurantsNearMe\RestaurantsNearMe.Business.Tests\obj\Debug\RestaurantsNearMe.Business.Tests.dll
 C:\Users\nsharma\Desktop\PrivateGitRepos\RestaurantsNearMe\RestaurantsNearMe.Business.Tests\obj\Debug\RestaurantsNearMe.Business.Tests.pdb

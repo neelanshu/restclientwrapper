@@ -1,3 +1,4 @@
+C:\Users\nsharma\Desktop\PrivateGitRepos\RestaurantsNearMe\RestaurantsNearMe.MVC.Web\obj\Debug\RestaurantsNearMe.MVC.Web.csprojResolveAssemblyReference.cache
 C:\Users\nsharma\Desktop\PrivateGitRepos\RestaurantsNearMe\RestaurantsNearMe.MVC.Web\bin\RestaurantsNearMe.MVC.Web.dll.config
 C:\Users\nsharma\Desktop\PrivateGitRepos\RestaurantsNearMe\RestaurantsNearMe.MVC.Web\bin\RestaurantsNearMe.MVC.Web.dll
 C:\Users\nsharma\Desktop\PrivateGitRepos\RestaurantsNearMe\RestaurantsNearMe.MVC.Web\bin\RestaurantsNearMe.MVC.Web.pdb
@@ -23,6 +24,5 @@ C:\Users\nsharma\Desktop\PrivateGitRepos\RestaurantsNearMe\RestaurantsNearMe.MVC
 C:\Users\nsharma\Desktop\PrivateGitRepos\RestaurantsNearMe\RestaurantsNearMe.MVC.Web\bin\System.Web.WebPages.xml
 C:\Users\nsharma\Desktop\PrivateGitRepos\RestaurantsNearMe\RestaurantsNearMe.MVC.Web\bin\System.Web.WebPages.Razor.xml
 C:\Users\nsharma\Desktop\PrivateGitRepos\RestaurantsNearMe\RestaurantsNearMe.MVC.Web\bin\RestaurantsNearMe.ApiInfrastructure.pdb
-C:\Users\nsharma\Desktop\PrivateGitRepos\RestaurantsNearMe\RestaurantsNearMe.MVC.Web\obj\Debug\RestaurantsNearMe.MVC.Web.csprojResolveAssemblyReference.cache
 C:\Users\nsharma\Desktop\PrivateGitRepos\RestaurantsNearMe\RestaurantsNearMe.MVC.Web\obj\Debug\RestaurantsNearMe.MVC.Web.dll
 C:\Users\nsharma\Desktop\PrivateGitRepos\RestaurantsNearMe\RestaurantsNearMe.MVC.Web\obj\Debug\RestaurantsNearMe.MVC.Web.pdb

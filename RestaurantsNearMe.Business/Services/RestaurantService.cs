@@ -15,15 +15,13 @@ namespace RestaurantsNearMe.Business.Services
 {
     public class RestaurantService : IRestaurantService
     {
-        private readonly ICustomRestClient _customRestClient;
+        private readonly IClient _customRestClient;
         private readonly IApiConfiguration _apiRequestConfiguration;
-        private readonly IApplicationSettings _applicationSettings;
         
-        public RestaurantService(ICustomRestClient customRestClient, IApiConfiguration apiRequestConfiguration , IApplicationSettings applicationSettings)
+        public RestaurantService(IClient customRestClient, IApiConfiguration apiRequestConfiguration)
         {
             _customRestClient = customRestClient;
             _apiRequestConfiguration = apiRequestConfiguration;
-            _applicationSettings = applicationSettings;
         }
 
         public async Task<GetAllRestaurantResponse> GetAllRestaurantsAsync(string searchCode)

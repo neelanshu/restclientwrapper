@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
 using Moq;
@@ -16,9 +17,9 @@ namespace RestaurantsNearMe.ApiInfrastructure.Tests.Client
     [TestFixture]
     public class CustomRestClientTests
     {
-        private CustomRestClient CreateClient(IHttpApiConnection conn = null, IApiConfiguration config = null, IUriResolver resolver = null)
+        private GenericRestClient CreateClient(IHttpApiConnection conn = null, IApiConfiguration config = null, IUriResolver resolver = null)
         {
-            return new CustomRestClient(
+            return new GenericRestClient(
                 conn ?? new FakeHttpApiConnection(),
                 config ?? new FakeApiConfiguration() {CaptureSynchronizationContext = false},
                 resolver ?? new Mock<IUriResolver>().Object);
@@ -57,7 +58,7 @@ namespace RestaurantsNearMe.ApiInfrastructure.Tests.Client
                 => client.GetAsync<object>(apirequest));
         }
 
-        private async Task VerifyIncomingUrlIsPassedToUriResolver(Func<CustomRestClient, IApiRequest, Task> clientAction)
+        private async Task VerifyIncomingUrlIsPassedToUriResolver(Func<GenericRestClient, IApiRequest, Task> clientAction)
         {
             var expectedUri = new Uri("http://myhost.com");
             var apiRequest = new DefaultApiRequest() {Method = HttpMethod.Get, ResourceUri = expectedUri};
@@ -84,7 +85,7 @@ namespace RestaurantsNearMe.ApiInfrastructure.Tests.Client
         }
 
         private async Task VerifyGivenParametersArePassedToUriResolver(
-           Func<CustomRestClient, IApiRequest, Task> clientAction)
+           Func<GenericRestClient, IApiRequest, Task> clientAction)
         {
             var expectedParams = new Dictionary<string, string>(){{"a","1"}};
             var apiRequest = new DefaultApiRequest() { Method = HttpMethod.Get, ResourceUri = new Uri("http://myhost.com"), Parameters = expectedParams};
@@ -113,18 +114,19 @@ namespace RestaurantsNearMe.ApiInfrastructure.Tests.Client
         }
 
         private async Task VerifyUriReturnedByUriResolverIsPassedToHttpConnection<T>(
-          Func<CustomRestClient, Task> clientAction)
+          Func<GenericRestClient, Task> clientAction)
         {
             var expectedUri = new Uri("http://host.com/path/?a=1");
-            var uriResolver = new Mock<IUriResolver>(MockBehavior.Loose);
+            var uriToGetFromRequest = new Uri("http://m");
 
+            var uriResolver = new Mock<IUriResolver>(MockBehavior.Loose);
             var mockConnection = new Mock<IHttpApiConnection>(MockBehavior.Loose);
 
             uriResolver.Setup(r => r.ResolveUri(It.IsAny<Uri>(), It.IsAny<IDictionary<string, string>>()))
                         .Returns(expectedUri);
 
-            mockConnection.Setup(c => c.SendRequestAsync<T>(It.IsAny<DefaultApiRequest>(), new Uri("http://host.com/path/?a=1")
-                                        ,It.IsAny<HttpMethod>(),It.IsAny<IDictionary<string, IEnumerable<string>>>()))
+            mockConnection.Setup(c => c.SendRequestAsync<T>(It.IsAny<IApiRequest>()))
+                          .Callback((IApiRequest re )=>uriToGetFromRequest = re.ResourceUri)
                          .Returns(Task.FromResult<IApiResponse<T>>(new ApiResponse<T>()))
                          .Verifiable();
 
@@ -132,7 +134,8 @@ namespace RestaurantsNearMe.ApiInfrastructure.Tests.Client
 
             await clientAction(client);
 
-            mockConnection.Verify();
+            Assert.AreEqual(expectedUri,uriToGetFromRequest);
+            //mockConnection.Verify();
         }
 
         [Test]
@@ -147,11 +150,14 @@ namespace RestaurantsNearMe.ApiInfrastructure.Tests.Client
                 }));
         }
 
-        private async Task VerifyHttpMethodIsPassedToHttpConnection<T>(HttpMethod expectedHttpMethod, Func<CustomRestClient, Task> clientAction)
+        private async Task VerifyHttpMethodIsPassedToHttpConnection<T>(HttpMethod expectedHttpMethod, Func<GenericRestClient, Task> clientAction)
         {
+            var actualMethod = HttpMethod.Trace;
+
             var mockConnection = new Mock<IHttpApiConnection>(MockBehavior.Loose);
 
-            mockConnection.Setup(c => c.SendRequestAsync<T>(It.IsAny<DefaultApiRequest>(), It.IsAny<Uri>(), expectedHttpMethod,It.IsAny<IDictionary<string, IEnumerable<string>>>()))
+            mockConnection.Setup(c => c.SendRequestAsync<T>(It.IsAny<IApiRequest>()))
+                          .Callback((IApiRequest re )=>actualMethod = re.Method)
                          .Returns(Task.FromResult<IApiResponse<T>>(new ApiResponse<T>()))
                          .Verifiable();
 
@@ -159,28 +165,24 @@ namespace RestaurantsNearMe.ApiInfrastructure.Tests.Client
 
             await clientAction(client);
 
-            mockConnection.Verify();
+            Assert.AreEqual(expectedHttpMethod,actualMethod);
         }
 
 
         [Test]
-        public async void GetAsyncShouldReturnBodyOfResponseReturnedByHttpConnection()
+        public async Task GetAsyncShouldReturnBodyOfResponseReturnedByHttpConnection()
         {
             await VerifyBodyOfApiResponseIsReturned(
                 client => client.GetAsync<object>(new DefaultApiRequest() { Method = HttpMethod.Get, ResourceUri = new Uri("http://myhost.com") }));
         }
         
         private async Task VerifyBodyOfApiResponseIsReturned<T>(
-           Func<CustomRestClient, Task<T>> clientAction)
+           Func<GenericRestClient, Task<T>> clientAction)
            where T : new()
         {
             var expectedResponse = new T();
             var mockConnection = new Mock<IHttpApiConnection>(MockBehavior.Loose);
-            mockConnection.Setup(c => c.SendRequestAsync<T>(
-                                        It.IsAny<DefaultApiRequest>(),
-                                        It.IsAny<Uri>(),
-                                        It.IsAny<HttpMethod>(),
-                                        It.IsAny<IDictionary<string, IEnumerable<string>>>()))
+            mockConnection.Setup(c => c.SendRequestAsync<T>(It.IsAny<IApiRequest>()))
                          .Returns(Task.FromResult<IApiResponse<T>>(new ApiResponse<T> { BodyAsObject = expectedResponse }));
             var client = CreateClient(mockConnection.Object);
 
@@ -189,69 +191,33 @@ namespace RestaurantsNearMe.ApiInfrastructure.Tests.Client
             Assert.AreSame(expectedResponse, actualResponse);
         }
 
-        //[Test]
-        //public async void GetAsyncShouldShouldSendRequestWithGivenHeaderSetToJson()
-        //{
-        //    await VerifyGivenHeaderIsPassedToHttpConnection<object>(
-        //        (client, headers) => client.GetAsync<Resource>(new DefaultApiRequest() { Method = HttpMethod.Get, ResourceUri = new Uri("http://myhost.com") }));
-        //}
-
-        //private async Task VerifyGivenHeaderIsPassedToHttpConnection<T>(
-        //   Func<CustomRestClient, IDictionary<string, IEnumerable<string>>, Task> clientAction)
-        //{
-        //    var expectedHeaderKey = "Custom Header";
-        //    var expectedHeaderValue = new[] { "Custom Value 1", "Custom Value 2" };
-        //    IDictionary<string, IEnumerable<string>> actualHeaders = null;
-        //    var mockConnection = new Mock<IHttpApiConnection>(MockBehavior.Loose);
-        //    mockConnection.Setup(c => c.SendRequestAsync<T>(
-        //                                It.IsAny<DefaultApiRequest>(),
-        //                                It.IsAny<Uri>(),
-        //                                It.IsAny<HttpMethod>(),
-        //                                It.IsAny<IDictionary<string, IEnumerable<string>>>()))
-        //                 .Callback((IApiRequest request, Uri uri, HttpMethod method,IDictionary<string, IEnumerable<string>> headers) =>
-        //                    actualHeaders = headers)
-        //                 .Returns(Task.FromResult<IApiResponse<T>>(new ApiResponse<T>()));
-        //    var client = CreateClient(conn: mockConnection.Object);
-
-        //    await clientAction(
-        //        client,
-        //        new Dictionary<string, IEnumerable<string>>
-        //            {
-        //                {expectedHeaderKey, expectedHeaderValue}
-        //            });
-
-        //    Assert.AreSame(expectedHeaderValue, actualHeaders[expectedHeaderKey]);
-        //}
-
         [Test]
-        public async Task GetAsyncSetsDefaultAcceptRequestHeaderIfAcceptHeaderNotPresent()
+        public async Task GetAsyncShouldSendRequestWithAcceptHeaderSetToJson()
         {
-            await VerifyDefaultAcceptRequestHeaderIsSetFromApiConfiguration<object>(
-                (client) => client.GetAsync<object>(new DefaultApiRequest()
-                {
-                    Method = HttpMethod.Get,
-                    ResourceUri = new Uri("http://host.com/path/")
-                }));
+            await VerifyGivenHeaderIsPassedToHttpConnection<Resource>(
+            (client) => client.GetAsync<Resource>(new DefaultApiRequest()
+            {
+                Method = HttpMethod.Get,
+                ResourceUri = new Uri("http://host.com/path/"),
+                Headers = null
+            }));
         }
 
-        private async Task VerifyDefaultAcceptRequestHeaderIsSetFromApiConfiguration<T>(Func<CustomRestClient, Task> clientAction)
+        private async Task VerifyGivenHeaderIsPassedToHttpConnection<T>(Func<GenericRestClient, Task> clientAction)
         {
-            var expectedAcceptHeader = "application/json";
+           
+            IDictionary<string, IEnumerable<string>> actualHeaders = null;
             var mockConnection = new Mock<IHttpApiConnection>(MockBehavior.Loose);
 
-            mockConnection.Setup(
-                          c => c.SendRequestAsync<T>(It.IsAny<DefaultApiRequest>(), It.IsAny<Uri>(), It.IsAny<HttpMethod>(), It.IsAny<IDictionary<string, IEnumerable<string>>>()))
-                         .Returns(Task.FromResult<IApiResponse<T>>(new ApiResponse<T>()))
-                         .Verifiable();
+            mockConnection.Setup(c => c.SendRequestAsync<T>(It.IsAny<IApiRequest>()))
+                         .Callback((IApiRequest request) => actualHeaders= request.Headers)
+                         .Returns(Task.FromResult<IApiResponse<T>>(new ApiResponse<T>()));
 
-            var mockApiConfiguration = new Mock<IApiConfiguration>();
-            mockApiConfiguration.Setup(x => x.DefaultMediaTypeForAcceptRequestHeader).Returns(expectedAcceptHeader).Verifiable();
-
-            var client = CreateClient(mockConnection.Object, mockApiConfiguration.Object);
+            var client = CreateClient(mockConnection.Object);
 
             await clientAction(client);
-
-            mockApiConfiguration.Verify();
+            
+            mockConnection.Verify();
         }
     }
 }

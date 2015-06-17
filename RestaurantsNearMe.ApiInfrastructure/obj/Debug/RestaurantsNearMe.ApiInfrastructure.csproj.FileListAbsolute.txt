@@ -10,3 +10,14 @@ C:\Users\nsharma\Desktop\PrivateGitRepos\RestaurantsNearMe\RestaurantsNearMe.Inf
 C:\Users\nsharma\Desktop\PrivateGitRepos\RestaurantsNearMe\RestaurantsNearMe.Infrastructure\obj\Debug\RestaurantsNearMe.ApiInfrastructure.pdb
 C:\Users\nsharma\Desktop\PrivateGitRepos\RestaurantsNearMe\RestaurantsNearMe.Infrastructure\bin\Debug\RestaurantsNearMe.ApiInfrastructure.dll.CodeAnalysisLog.xml
 C:\Users\nsharma\Desktop\PrivateGitRepos\RestaurantsNearMe\RestaurantsNearMe.Infrastructure\bin\Debug\RestaurantsNearMe.ApiInfrastructure.dll.lastcodeanalysissucceeded
+C:\Users\nsharma\Desktop\PrivateGitRepos\RestaurantsNearMe\RestaurantsNearMe.ApiInfrastructure\obj\Debug\RestaurantsNearMe.ApiInfrastructure.csprojResolveAssemblyReference.cache
+C:\Users\nsharma\Desktop\PrivateGitRepos\RestaurantsNearMe\RestaurantsNearMe.ApiInfrastructure\bin\Debug\RestaurantsNearMe.ApiInfrastructure.dll
+C:\Users\nsharma\Desktop\PrivateGitRepos\RestaurantsNearMe\RestaurantsNearMe.ApiInfrastructure\bin\Debug\RestaurantsNearMe.ApiInfrastructure.pdb
+C:\Users\nsharma\Desktop\PrivateGitRepos\RestaurantsNearMe\RestaurantsNearMe.ApiInfrastructure\bin\Debug\Castle.Core.dll
+C:\Users\nsharma\Desktop\PrivateGitRepos\RestaurantsNearMe\RestaurantsNearMe.ApiInfrastructure\bin\Debug\Castle.Windsor.dll
+C:\Users\nsharma\Desktop\PrivateGitRepos\RestaurantsNearMe\RestaurantsNearMe.ApiInfrastructure\bin\Debug\Newtonsoft.Json.dll
+C:\Users\nsharma\Desktop\PrivateGitRepos\RestaurantsNearMe\RestaurantsNearMe.ApiInfrastructure\bin\Debug\Castle.Core.xml
+C:\Users\nsharma\Desktop\PrivateGitRepos\RestaurantsNearMe\RestaurantsNearMe.ApiInfrastructure\bin\Debug\Castle.Windsor.xml
+C:\Users\nsharma\Desktop\PrivateGitRepos\RestaurantsNearMe\RestaurantsNearMe.ApiInfrastructure\bin\Debug\Newtonsoft.Json.xml
+C:\Users\nsharma\Desktop\PrivateGitRepos\RestaurantsNearMe\RestaurantsNearMe.ApiInfrastructure\obj\Debug\RestaurantsNearMe.ApiInfrastructure.dll
+C:\Users\nsharma\Desktop\PrivateGitRepos\RestaurantsNearMe\RestaurantsNearMe.ApiInfrastructure\obj\Debug\RestaurantsNearMe.ApiInfrastructure.pdb

@@ -2,10 +2,10 @@
 {
     public interface IApplicationSettings
     {
-        string RestaurantsResource { get; }
-        string RestaurantsResourceAcceptTenantHeader { get; }
-        string RestaurantsResourceAcceptLanguageHeader { get; }
-        string RestaurantsResourceAuthenticationHeader { get; }
-        string RestaurantsResourceResponseIdentifierToken { get; }
+        //string RestaurantsResource { get; }
+        //string RestaurantsResourceAcceptTenantHeader { get; }
+        //string RestaurantsResourceAcceptLanguageHeader { get; }
+        //string RestaurantsResourceAuthenticationHeader { get; }
+        //string RestaurantsResourceResponseIdentifierToken { get; }
     }
 }

@@ -28,7 +28,7 @@ namespace RestaurantsNearMe.ApiInfrastructure.IOC
                 .Register(
                     Component.For<IHttpApiConnection>().ImplementedBy<HttpApiConnection>().LifestylePerWebRequest())
                 .Register(
-                    Component.For<ICustomRestClient>().ImplementedBy<CustomRestClient>().LifestylePerWebRequest());
+                    Component.For<IClient>().ImplementedBy<GenericRestClient>().LifestylePerWebRequest());
         }
     }
 }

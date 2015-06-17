@@ -15,20 +15,26 @@ namespace RestaurantsNearMe.MVC.Web.Tests.Integration
     [TestFixture]
     public class GetRestaurantsNearMeIntegrationTests
     {
+        private RestaurantController controller;
+
+        [SetUp]
+        public void SetUp()
+        {
+            var restaurantService =
+               new RestaurantService(
+                   new GenericRestClient(
+                       new HttpApiConnection(
+                           new ApiResponseFactory(new DefaultJsonSerializer(), new DefaultApiRequestConfiguration()),
+                           new DefaultApiRequestConfiguration(), new DefaultJsonSerializer(),
+                           new DefaultClientFactory()), new DefaultApiRequestConfiguration(), new UriResolver()),
+                   new DefaultApiRequestConfiguration());
+
+            controller = new RestaurantController(restaurantService);
+
+        }
         [Test]
         public async Task GetAllAsyncShouldSuccessfullyGetAllRestaurantsFromApiForAnOutcode()
         {
-            var restaurantService =
-                new RestaurantService(
-                    new CustomRestClient(
-                        new HttpApiConnection(
-                            new ApiResponseFactory(new DefaultJsonSerializer(), new DefaultApiRequestConfiguration()),
-                            new DefaultApiRequestConfiguration(), new DefaultJsonSerializer(),
-                            new DefaultClientFactory()), new DefaultApiRequestConfiguration(), new UriResolver()),
-                    new DefaultApiRequestConfiguration(), new ApplicationSettings());
-
-            var controller = new RestaurantController(restaurantService);
-
             var result = await controller.GetAllAsync("se19");
 
             Assert.IsNotNull(result);
@@ -43,16 +49,6 @@ namespace RestaurantsNearMe.MVC.Web.Tests.Integration
         [Test]
         public async Task GetAllAsyncShouldNotReturnAnyRestaurantsFromApiForAnOutcodeWhichIsEmpty()
         {
-            var restaurantService =
-                new RestaurantService(
-                    new CustomRestClient(
-                        new HttpApiConnection(
-                            new ApiResponseFactory(new DefaultJsonSerializer(), new DefaultApiRequestConfiguration()),
-                            new DefaultApiRequestConfiguration(), new DefaultJsonSerializer(),
-                            new DefaultClientFactory()), new DefaultApiRequestConfiguration(), new UriResolver()),
-                    new DefaultApiRequestConfiguration(), new ApplicationSettings());
-
-            var controller = new RestaurantController(restaurantService);
 
             var result = await controller.GetAllAsync(string.Empty);
 
@@ -67,17 +63,6 @@ namespace RestaurantsNearMe.MVC.Web.Tests.Integration
         [Test]
         public async Task GetAllAsyncShouldNotReturnAnyRestaurantsFromApiForAnOutcodeWhichIsNotPostcode()
         {
-            var restaurantService =
-                new RestaurantService(
-                    new CustomRestClient(
-                        new HttpApiConnection(
-                            new ApiResponseFactory(new DefaultJsonSerializer(), new DefaultApiRequestConfiguration()),
-                            new DefaultApiRequestConfiguration(), new DefaultJsonSerializer(),
-                            new DefaultClientFactory()), new DefaultApiRequestConfiguration(), new UriResolver()),
-                    new DefaultApiRequestConfiguration(), new ApplicationSettings());
-
-            var controller = new RestaurantController(restaurantService);
-
             var result = await controller.GetAllAsync("lon");
 
             Assert.IsNotNull(result);
